@@ -15,6 +15,10 @@
                         @include('components.sort-icon', ['field' => 'created_at'])
                     </a></th>
                 <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
+                        Status
+                        @include('components.sort-icon', ['field' => 'created_at'])
+                    </a></th>
+                <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
                         Created At
                         @include('components.sort-icon', ['field' => 'created_at'])
                     </a></th>
@@ -27,6 +31,7 @@
                     <td>{{ $device->id }}</td>
                     <td>{{ $device->number }}</td>
                     <td>{{ $device->webhook }}</td>
+                    <td>{{ $device->status }}</td>
                     <td>{{ $device->created_at }}</td>
                     <td class="whitespace-no-wrap row-action--icon">
                         <a role="button" href="/device/scan/{{ $device->id }}" class="mr-3"><i

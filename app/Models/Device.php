@@ -9,7 +9,7 @@ class Device extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'number', 'webhook'];
+    protected $fillable = ['user_id', 'number', 'webhook', 'status'];
 
     public static function search($query)
     {

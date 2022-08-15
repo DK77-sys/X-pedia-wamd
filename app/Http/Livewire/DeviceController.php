@@ -32,6 +32,7 @@ class DeviceController extends Component
     {
         $this->resetErrorBag();
         $this->validate();
+        $this->device["status"] = "Disconnect";
         $this->device["user_id"] = Auth()->guard()->user()->id;
         Device::create($this->device);
         $this->emit("saved");
