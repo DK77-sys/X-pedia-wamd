@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
-    Route::view('/dashboard', "dashboard")->name('dashboard');
+Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::get('/user', [ UserController::class, "index_view" ])->name('user');
+    Route::get('/user', [UserController::class, "index_view"])->name('user');
     Route::view('/user/new', "pages.user.user-new")->name('user.new');
     Route::view('/user/edit/{userId}', "pages.user.user-edit")->name('user.edit');
+
+    Route::get('/device', [DeviceController::class, "index_view"])->name('device');
+    Route::view('/device/new', "pages.device.device-new")->name('device.new');
+    Route::view('/device/edit/{deviceId}', "pages.device.device-edit")->name('device.edit');
+
+    Route::view('/auto-reply', "pages.auto-reply.auto-reply-data")->name('auto-reply');
+    Route::view('/auto-reply/new', "pages.auto-reply.auto-reply-new")->name('auto-reply.new');
 });

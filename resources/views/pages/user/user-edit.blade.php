@@ -1,3 +1,4 @@
+@section('title','Edit User')
 <x-app-layout>
     <x-slot name="header_content">
         <h1>{{ __('Edit User') }}</h1>
@@ -10,6 +11,6 @@
     </x-slot>
 
     <div>
-        <livewire:create-user action="updateUser" :userId="request()->userId" />
+        <livewire:user-controller action="updateUser" :userId="request()->userId" />
     </div>
 </x-app-layout>

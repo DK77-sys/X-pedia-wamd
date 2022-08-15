@@ -12,18 +12,17 @@ class Main extends Component
 
     public $model;
     public $name;
-
     public $perPage = 10;
     public $sortField = "id";
     public $sortAsc = false;
     public $search = '';
 
-    protected $listeners = [ "deleteItem" => "delete_item" ];
+    protected $listeners = ["deleteItem" => "delete_item"];
 
     public function sortBy($field)
     {
         if ($this->sortField === $field) {
-            $this->sortAsc = ! $this->sortAsc;
+            $this->sortAsc = !$this->sortAsc;
         } else {
             $this->sortAsc = true;
         }
@@ -31,7 +30,7 @@ class Main extends Component
         $this->sortField = $field;
     }
 
-    public function delete_item ($id)
+    public function delete_item($id)
     {
         $data = $this->model::find($id);
 
@@ -53,7 +52,6 @@ class Main extends Component
     public function render()
     {
         $data = $this->get_pagination_data();
-
         return view($data['view'], $data);
     }
 }

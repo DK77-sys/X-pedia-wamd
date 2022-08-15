@@ -1,5 +1,6 @@
 require('./bootstrap');
-
+const Turbolinks = require("turbolinks")
+Turbolinks.start()
 function dataTableController (id) {
     return {
         id,

@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
-class CreateUser extends Component
+class UserController extends Component
 {
     public $user;
     public $userId;
@@ -21,35 +21,29 @@ class CreateUser extends Component
             'user.password' => 'required|min:8|confirmed',
             'user.password_confirmation' => 'required' // livewire need this
         ];
-
         return array_merge([
             'user.name' => 'required|min:3',
             'user.email' => 'required|email|unique:users,email'
         ], $rules);
     }
 
-    public function createUser ()
+    public function createUser()
     {
         $this->resetErrorBag();
         $this->validate();
-
         $password = $this->user['password'];
-
-        if ( !empty($password) ) {
+        if (!empty($password)) {
             $this->user['password'] = Hash::make($password);
         }
-
         User::create($this->user);
-
         $this->emit('saved');
         $this->reset('user');
     }
 
-    public function updateUser ()
+    public function updateUser()
     {
         $this->resetErrorBag();
         $this->validate();
-
         User::query()
             ->where('id', $this->userId)
             ->update([
@@ -60,12 +54,11 @@ class CreateUser extends Component
         $this->emit('saved');
     }
 
-    public function mount ()
+    public function mount()
     {
         if (!$this->user && $this->userId) {
             $this->user = User::find($this->userId);
         }
-
         $this->button = create_button($this->action, "User");
     }
 
