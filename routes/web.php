@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DeviceController;
+use App\Http\Livewire\ScanDevice;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
     Route::view('/user/edit/{userId}', "pages.user.user-edit")->name('user.edit');
 
     Route::get('/device', [DeviceController::class, "index_view"])->name('device');
+    Route::get('/device/scan/{deviceId}', ScanDevice::class)->name('device.scan');
     Route::view('/device/new', "pages.device.device-new")->name('device.new');
     Route::view('/device/edit/{deviceId}', "pages.device.device-edit")->name('device.edit');
 

@@ -6,17 +6,17 @@
                         ID
                         @include('components.sort-icon', ['field' => 'id'])
                     </a></th>
-                <th><a wire:click.prevent="sortBy('name')" role="button" href="#">
+                <th><a wire:click.prevent="sortBy('number')" role="button" href="#">
                         Number
-                        @include('components.sort-icon', ['field' => 'name'])
+                        @include('components.sort-icon', ['field' => 'number'])
                     </a></th>
-                <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
+                <th><a wire:click.prevent="sortBy('webhook')" role="button" href="#">
                         Webhook
-                        @include('components.sort-icon', ['field' => 'created_at'])
+                        @include('components.sort-icon', ['field' => 'webhook'])
                     </a></th>
-                <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
+                <th><a wire:click.prevent="sortBy('status')" role="button" href="#">
                         Status
-                        @include('components.sort-icon', ['field' => 'created_at'])
+                        @include('components.sort-icon', ['field' => 'status'])
                     </a></th>
                 <th><a wire:click.prevent="sortBy('created_at')" role="button" href="#">
                         Created At

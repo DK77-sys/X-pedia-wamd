@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Device;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class DeviceController extends Component
